@@ -77,7 +77,8 @@ self.notificationsManagerDelegate = [[CustomMNNotificationsManagerDelegate alloc
                                      completionHandler:^(MNNotificationsManager *notificationsManager, NSError *error) {
 	if (!error) {
 		NSLog(@"NMNotificationsManager instantiation success");
-		self.notificationsManager = notificationsManager;		[self.notificationsManager start];
+		self.notificationsManager = notificationsManager;		
+		[self.notificationsManager start];
 	} else {
 		NSLog(@"NMNotificationsManager instantiation error: %@", error.localizedDescription);
 	}
