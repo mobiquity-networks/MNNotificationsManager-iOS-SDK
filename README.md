@@ -59,16 +59,27 @@ In order to start using the SDK, you have to get an instance of MNNotificationsM
 Init sample:
 
 ```objectivec
-MNBAppKey *appKey = [[MNBAppKey alloc] initWithAppKey:@"providedAppKey" andSecretKey:@"providedSecretKey"];
-CustomMNNotificationsManagerDelegate *delegate = [[CustomMNNotificationsManagerDelegate alloc] init];
-[MNNotificationsManager notificationsManagerWithAppKey:appKey options:nil user:nil delegate:delegate completionHandler:^(MNNotificationsManager *notificationsManager, NSError *error) {
-        if (!error) {
-            self.notificationsManager = notificationsManager;
-            [self.notificationsManager start];
-        } else {
-            NSLog(@"Error creating Notifications Manager: %@"error.localizedDescription);
-        }
-    }];
+// Create Mobiquity Networks Application Key.  Values can be obtained from
+// your panel account under Clients & Apps
+MNAppKey *appKey = [[MNAppKey alloc] initWithAppKey:@"providedAppKey" 
+                                       andSecretKey:@"providedSecretKey"];
+                                       
+// Keep a strong reference of your custom MNNotificationsManagerDelegate implementation
+self.notificationsManagerDelegate = [[CustomMNNotificationsManagerDelegate alloc] init];
+
+// MNNotificationsManager instantiation
+[MNNotificationsManager notificationsManagerWithAppKey:appKey 
+                                               options:nil 
+                                                  user:nil 
+                                              delegate:self.notificationsManagerDelegate 
+                                     completionHandler:^(MNNotificationsManager *notificationsManager, NSError *error) {
+	if (!error) {
+		NSLog(@"NMNotificationsManager instantiation success");
+		self.notificationsManager = notificationsManager;		[self.notificationsManager start];
+	} else {
+		NSLog(@"NMNotificationsManager instantiation error: %@", error.localizedDescription);
+	}
+}];
 ```
 
 ### Options
