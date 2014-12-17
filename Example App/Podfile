@@ -1,0 +1,9 @@
+source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/mobiquity-networks/CocoaPods'
+
+platform :ios, '7.0'
+
+pod 'MNNotificationsManager'
+
+
+

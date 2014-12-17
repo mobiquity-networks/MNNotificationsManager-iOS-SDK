@@ -1,0 +1,10 @@
+PODS:
+  - MNNotificationsManager (1.0.3)
+
+DEPENDENCIES:
+  - MNNotificationsManager
+
+SPEC CHECKSUMS:
+  MNNotificationsManager: 48242d7bde83a99da2640bbb792d0b5f93eda55d
+
+COCOAPODS: 0.35.0
