@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "MNNotificationsManager"
-  s.version          = "1.0.2"
+  s.version          = "1.0.3"
   s.summary          = "SDK to interact with Beacons and Geofences using the Mobiquity Networks Server platform"
   s.homepage         = "http://www.mobiquitynetworks.com"
   s.license          = 'Copyright © 2014 by Mobiquity Networks, Inc. All rights reserved.'
@@ -13,5 +13,5 @@ Pod::Spec.new do |s|
   s.resources = 'MNProximityManager.bundle'
   s.vendored_frameworks = 'MNNotificationsManager.framework'
   
-  s.frameworks = 'CoreLocation', 'CoreData', 'MobileCoreServices', 'AdSupport', 'CoreBluetooth'
+  s.frameworks = 'CoreLocation', 'CoreData', 'MobileCoreServices', 'AdSupport', 'CoreBluetooth', 'UIKit'
 end

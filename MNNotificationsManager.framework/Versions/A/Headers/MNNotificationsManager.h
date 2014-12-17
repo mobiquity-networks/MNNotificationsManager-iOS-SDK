@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Mobiquity Networks. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 #import "MNProximityManagerDataTypes.h"
 #import "MNNotificationsManagerDelegate.h"
