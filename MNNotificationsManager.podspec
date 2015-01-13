@@ -1,9 +1,9 @@
 Pod::Spec.new do |s|
   s.name             = "MNNotificationsManager"
-  s.version          = "1.0.3"
+  s.version          = "1.0.4"
   s.summary          = "SDK to interact with Beacons and Geofences using the Mobiquity Networks Server platform"
   s.homepage         = "http://www.mobiquitynetworks.com"
-  s.license          = 'Copyright © 2014 by Mobiquity Networks, Inc. All rights reserved.'
+  s.license          = 'Copyright © 2015 by Mobiquity Networks, Inc. All rights reserved.'
   s.author           = { "Alberto Salas" => "albsala.work@gmail.com" }
   s.source           = { :git => "https://github.com/mobiquity-networks/MNNotifications-iOS-SDK", :tag => s.version.to_s }
 
