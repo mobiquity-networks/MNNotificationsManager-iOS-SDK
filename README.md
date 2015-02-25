@@ -118,7 +118,7 @@ It is possible to send different types of information regarding the app user lik
 
 ```objectivec
     MNUserAudience *userAudience = [[MNUserAudience alloc] init];
-    userAudience.genre = kMNUserAudienceGenreFemale;
+    userAudience.gender = kMNUserAudienceGenderFemale;
     userAudience.tags = @[@"adventure sports", @"computers", @"art"];
     
     MNUser *user = [[MNUser alloc] initWithUserName:@"sample user"];
