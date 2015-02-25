@@ -15,7 +15,6 @@
 		EA91307F1A4192420077BB6F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA91307E1A4192420077BB6F /* Images.xcassets */; };
 		EA9130821A4192420077BB6F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA9130801A4192420077BB6F /* LaunchScreen.xib */; };
 		EA91308E1A4192420077BB6F /* MNNotificationsFunctionalDemoAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EA91308D1A4192420077BB6F /* MNNotificationsFunctionalDemoAppTests.m */; };
-		EA9130981A4192840077BB6F /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = EA9130971A4192840077BB6F /* Podfile */; };
 		EA91309B1A4194980077BB6F /* MNNotificationsManagerCustomDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EA91309A1A4194980077BB6F /* MNNotificationsManagerCustomDelegate.m */; };
 /* End PBXBuildFile section */
 
@@ -46,7 +45,6 @@
 		EA9130871A4192420077BB6F /* MNNotificationsFunctionalDemoAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MNNotificationsFunctionalDemoAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA91308C1A4192420077BB6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA91308D1A4192420077BB6F /* MNNotificationsFunctionalDemoAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MNNotificationsFunctionalDemoAppTests.m; sourceTree = "<group>"; };
-		EA9130971A4192840077BB6F /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		EA9130991A4194980077BB6F /* MNNotificationsManagerCustomDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNNotificationsManagerCustomDelegate.h; sourceTree = "<group>"; };
 		EA91309A1A4194980077BB6F /* MNNotificationsManagerCustomDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNNotificationsManagerCustomDelegate.m; sourceTree = "<group>"; };
 		EA91309C1A4198710077BB6F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -83,7 +81,6 @@
 		EA9130651A4192420077BB6F = {
 			isa = PBXGroup;
 			children = (
-				EA9130971A4192840077BB6F /* Podfile */,
 				EA9130701A4192420077BB6F /* MNNotificationsFunctionalDemoApp */,
 				EA91308A1A4192420077BB6F /* MNNotificationsFunctionalDemoAppTests */,
 				EA91306F1A4192420077BB6F /* Products */,
@@ -242,7 +239,6 @@
 			files = (
 				EA91307D1A4192420077BB6F /* Main.storyboard in Resources */,
 				EA9130821A4192420077BB6F /* LaunchScreen.xib in Resources */,
-				EA9130981A4192840077BB6F /* Podfile in Resources */,
 				EA91307F1A4192420077BB6F /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

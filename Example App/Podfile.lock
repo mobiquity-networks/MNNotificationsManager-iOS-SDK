@@ -1,10 +1,14 @@
 PODS:
-  - MNNotificationsManager (1.0.3)
+  - MNNotificationsManager (1.1.0)
 
 DEPENDENCIES:
-  - MNNotificationsManager
+  - MNNotificationsManager (from `../`)
+
+EXTERNAL SOURCES:
+  MNNotificationsManager:
+    :path: ../
 
 SPEC CHECKSUMS:
-  MNNotificationsManager: 48242d7bde83a99da2640bbb792d0b5f93eda55d
+  MNNotificationsManager: 4e48268aa2aab84dc4332d33fbf52d8e955a5948
 
 COCOAPODS: 0.35.0

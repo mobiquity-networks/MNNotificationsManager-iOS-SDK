@@ -9,6 +9,6 @@
 // MNNotificationsManager
 #define COCOAPODS_POD_AVAILABLE_MNNotificationsManager
 #define COCOAPODS_VERSION_MAJOR_MNNotificationsManager 1
-#define COCOAPODS_VERSION_MINOR_MNNotificationsManager 0
-#define COCOAPODS_VERSION_PATCH_MNNotificationsManager 3
+#define COCOAPODS_VERSION_MINOR_MNNotificationsManager 1
+#define COCOAPODS_VERSION_PATCH_MNNotificationsManager 0
 

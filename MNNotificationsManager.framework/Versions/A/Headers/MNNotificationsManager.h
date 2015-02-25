@@ -131,8 +131,22 @@ static NSString *MNNotificationsManagerNotificationKey = @"com.mobiquitynetworks
  *  it and is the developer's task to process it as any standard local notification.
  *
  * @since v1.0
+ * @deprecated Use instead the static version of this method.
  */
-- (BOOL) processLocalNotification:(UILocalNotification *)localNotification;
+- (BOOL) processLocalNotification:(UILocalNotification *)localNotification __attribute((deprecated("Use instead the static version of this method +[MNNotificationsManager processLocalNotification:]")));
+
+/**
+ * Used to send local notification received in the UIApplicationDelegate -application:didReceiveLocalNotification:
+ * to Notifications SDK for processing. Returns a Boolean indicating whether the SDK processed the notification.
+ *
+ * @param localNotification local notification received in the application delegate method indicated previously
+ *
+ * @return YES if the local notification was owned by the Notifications SDK, NO if Notifications SDK did not recognize
+ *  it and is the developer's task to process it as any standard local notification.
+ *
+ * @since v1.6
+ */
++ (BOOL) processLocalNotification:(UILocalNotification *)localNotification;
 
 /**
  *  Send a user stat

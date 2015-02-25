@@ -35,44 +35,58 @@
 
 /**
  * User Age
- * @since v1.0 and later
+ * @since v1.0
  */
 @property (nonatomic, strong) NSDate *birthday;
 
 /**
  * User Genre
- * @since v1.0 and later
+ * @since v1.0
  */
-@property (nonatomic, strong) NSString *genre;
+@property (nonatomic, strong) NSString *gender;
 
 /**
  * User Education
- * @since v1.0 and later
+ * @since v1.0
  */
 @property (nonatomic, strong) NSString *education;
 
 /**
  * User Ethnicity
- * @since v1.0 and later
+ * @since v1.0
  */
 @property (nonatomic, strong) NSString *ethnicity;
 
 /**
  * User Income
- * @since v1.0 and later
+ * @since v1.0
  */
 @property (nonatomic, strong) NSDictionary *income;
 
 /**
  * User Kids
- * @since v1.0 and later
+ * @since v1.0
  */
 @property (nonatomic, assign) NSUInteger kids;
 
 /**
  * User Marital Status
- * @since v1.0 and later
+ * @since v1.0
  */
 @property (nonatomic, strong) NSString *maritalStatus;
+
+/**
+ * User preferred language as a 639-1 ISO code. If not available under that spec,
+ * use the 639-2 ISO code.
+ * @since v1.6
+ */
+@property (nonatomic, strong) NSString *language;
+
+/**
+ * An array of NSString objects representing custom tags to associate with the 
+ * user.
+ * @since v1.6
+ */
+@property (nonatomic, strong) NSArray *tags;
 
 @end

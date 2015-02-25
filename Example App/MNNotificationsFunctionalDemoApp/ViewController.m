@@ -32,7 +32,7 @@
 - (void)notificationsManagerInitialization
 {
     // We instance an especific object dedicated to act as the delegate to Notifications Manager main ob
-    MNNotificationsManagerCustomDelegate *customDelegate = [[MNNotificationsManagerCustomDelegate alloc] init];
+    self.notificationsDelegate = [[MNNotificationsManagerCustomDelegate alloc] init];
 
     // We instance the object containing the app key and secret needed to use the SDK
     MNAppKey *appKey = [[MNAppKey alloc] initWithAppKey:@"providedAppKey" andSecretKey:@"providedAppSecret"];
@@ -43,14 +43,13 @@
     [MNNotificationsManager notificationsManagerWithAppKey:appKey
                                                    options:nil
                                                       user:nil
-                                                  delegate:customDelegate
+                                                  delegate:self.notificationsDelegate
                                          completionHandler:^(MNNotificationsManager *notificationsManager, NSError *error) {
                                              if (!error) {
                                                  // If initialization ended without errors, we start the SDK
                                                  [notificationsManager start];
-                                                 // and keep strong references to the manager and its delegate object
+                                                 // and keep strong reference to the manager
                                                  self.notificationsManager = notificationsManager;
-                                                 self.notificationsDelegate = customDelegate;
                                              } else {
                                                  NSLog(@"Error : %@",error.localizedDescription);
                                              }

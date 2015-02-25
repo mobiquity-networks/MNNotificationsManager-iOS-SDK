@@ -3,7 +3,7 @@ source 'https://github.com/mobiquity-networks/CocoaPods'
 
 platform :ios, '7.0'
 
-pod 'MNNotificationsManager'
+pod 'MNNotificationsManager', :path => '../'
 
 
 

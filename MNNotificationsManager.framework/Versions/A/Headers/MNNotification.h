@@ -62,6 +62,18 @@
 @property (nonatomic, strong, readonly) NSString *url;
 
 /**
+ * Notification Frequency
+ * @since v2.1 and later
+ */
+@property (nonatomic, strong, readonly) NSString *frequency;
+
+/**
+* Notification display type
+* @since v1.6
+*/
+@property (nonatomic, strong, readonly) NSString *displayType;
+
+/**
  * Notification data
  * @discussion Keys are languages as NSString, values are <MNNotificationLocalizedData> instances
  * @since v1.0 and later

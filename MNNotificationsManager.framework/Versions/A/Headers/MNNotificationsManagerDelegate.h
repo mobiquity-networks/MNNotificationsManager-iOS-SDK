@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "MNProximityManagerDataTypes.h"
+#import "MNNMGeoInfo.h"
 
 @class MNNotificationsManager;
-@class MNNMGeoInfo;
 
 /**
  * MNNotificationsManagerDelegate is the protocol to implement in order to respond to status events related to <MNNotificationsManager>. It's designed to inform about status changes in device systems used by Notifications Manager.
@@ -43,5 +43,16 @@
  * @since v1.0 and later
  */
 - (void) notificationsManager:(MNNotificationsManager *)notificationsManager didChangeBluetoothState:(MNPMBluetoothState)state;
+
+/**
+ * Tells the delegate that it has discovered geo info of interest for the client in the current localization.
+ *
+ * @param notificationsManager The notificationsManager object reporting the event.
+ *
+ * @param geoInfo A MNNMGeoInfo instance object containing information about the found place of interest.
+ *
+ * @since v1.1 and later
+ */
+- (void) notificationsManager:(MNNotificationsManager *)notificationsManager didDiscoveredGeoInfo:(MNNMGeoInfo *)geoInfo;
 
 @end
