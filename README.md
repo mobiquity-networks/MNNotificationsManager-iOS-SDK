@@ -28,10 +28,6 @@ Note that `'~> 1.0'` and `'~> 1.0.0'` have different behavior, see the [Podfile 
     - CoreTelephony.framework
 3. Other Linker Flags: `-ObjC` ([Why?](https://developer.apple.com/library/mac/qa/qa1490/_index.html))
 
-### Background Modes Required
-
-- Location Updates
-
 ## 2.  Location Authorization Set-Up
 
 To integrate Notifications SDK into your application, you should take into account the two different authorization schemes present in iOS 7 and iOS 8:
