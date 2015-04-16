@@ -101,7 +101,7 @@ As seen above, MNNotificationsManager's factory method offers an optional ```opt
        @"customKey2" : @"value2"
     };
     
-    ```
+```
 
 ### User
 
