@@ -223,6 +223,12 @@ MNNotificationsManager does not work on iOS 6 but it allows Apps to run on a dev
 2. Set CoreLocation.framework status to "Optional" at "Link Binary With Libraries".
 3. Check iOS version before using MNNotificationsManager.
 
+## iOS 9 Support
+
+iOS 9 offers two new features that will affect developing of apps with the latest iOS SDK and the current MNNotificationsManager version:
+- App Transport Security: Our SDK meets the App Transport Security requeriments from day one.
+- Bitcode: We will support Bitcode very soon in a coming release. To develop using our current release, the app developer must switch off "Enable Bitcode" in the app Build Settings panel.
+
 ## Sample Application
 
 The *Example App* directory in the repository's root contains the source code for a basic functionality app that shows a way to integrate the SDK into your application. You can use it as a starting point for your integration process, and as a basic testing application adding your provided App Key and Secret.
