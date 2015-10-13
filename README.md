@@ -229,6 +229,10 @@ iOS 9 offers two new features that will affect developing of apps with the lates
 - App Transport Security: Our SDK meets the App Transport Security requeriments from day one.
 - Bitcode: We will support Bitcode very soon in a coming release. To develop using our current release, the app developer must switch off "Enable Bitcode" in the app Build Settings panel.
 
+### ITMS-90535 Error "Unexpected CFBundleExecutable Key"
+
+If uploading your app to the AppStore produces the previous error, please remove the CFBundleExecutable entry in the Info.plist file contained in the provided MNProximityManager.bundle.
+
 ## Sample Application
 
 The *Example App* directory in the repository's root contains the source code for a basic functionality app that shows a way to integrate the SDK into your application. You can use it as a starting point for your integration process, and as a basic testing application adding your provided App Key and Secret.
