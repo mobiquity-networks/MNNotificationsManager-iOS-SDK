@@ -226,7 +226,7 @@ MNNotificationsManager does not work on iOS 6 but it allows Apps to run on a dev
 ## iOS 9 Support
 
 iOS 9 offers two new features that will affect developing of apps with the latest iOS SDK and the current MNNotificationsManager version:
-- App Transport Security: Our SDK meets the App Transport Security requeriments from day one.
+- App Transport Security: Our SDK does not meet the App Transport Security requeriments yet. You should switch off App Transport Security support in your app [Info.plist](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html) 
 - Bitcode: We will support Bitcode very soon in a coming release. To develop using our current release, the app developer must switch off "Enable Bitcode" in the app Build Settings panel.
 
 ### ITMS-90535 Error "Unexpected CFBundleExecutable Key"
