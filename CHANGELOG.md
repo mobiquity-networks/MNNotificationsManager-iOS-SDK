@@ -1,5 +1,9 @@
 # MNNotificationsManager CHANGELOG
 
+## 1.1.1
+
+- Bug fixes
+
 ## 1.1.0
 
 - Added optional custom audience tags

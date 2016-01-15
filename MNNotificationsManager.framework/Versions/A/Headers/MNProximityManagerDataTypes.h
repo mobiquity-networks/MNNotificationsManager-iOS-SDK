@@ -82,10 +82,12 @@ typedef NS_ENUM(NSInteger, MNPMBluetoothState) {
  *  @constant MNPMEnvironmentProduction Production environment
  *  @constant MNPMEnvironmentTesting Testing environment
  *  @constant MNPMEnvironmentStaging Staging environment
+ *  @constant MNPMEnvironmentQA QA environment
  *
  */
 typedef NS_ENUM(NSInteger, MNPMEnvironment) {
     MNPMEnvironmentProduction,
     MNPMEnvironmentTesting,
-    MNPMEnvironmentStaging
+    MNPMEnvironmentStaging,
+    MNPMEnvironmentQA
 };

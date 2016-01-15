@@ -34,12 +34,14 @@ To integrate Notifications SDK into your application, you should take into accou
 
 - On iOS 7 you had the *choice* of adding your own message to the privacy alert adding the ```NSLocationUsageDescription``` key and a message in your Application's Info.plist. 
 - On **iOS 8** that key is deprecated and has been replaced by these two:
-	```
+
+```
 	￼NSLocationAlwaysUsageDescription
 		
 	NSLocationWhenInUseUsageDescription
-	```
-	**iOS 8 requires you the use of one of them. In our particular case, if you want to integrate MNNotificationsManager into your application you must specify the ```NSLocationAlwaysUsageDescription``` key and a message in your Info.plist.**
+```
+
+**iOS 8 requires you the use of one of them. In our particular case, if you want to integrate MNNotificationsManager into your application you must specify the ```NSLocationAlwaysUsageDescription``` key and a message in your Info.plist.**
 - If you need to support both iOS versions, **you must specify the NSLocationAlwaysUsageDescription key, and optionally NSLocationUsageDescription**, recommended for a better user experience for iOS 7 users.
 
 References:
@@ -56,6 +58,7 @@ In order to start using the SDK, you have to get an instance of MNNotificationsM
 At this moment, you will need to provide a valid Mobiquity Networks Application Key and Secret. Values can be obtained from your [Panel account](http://panel.mobiquitynetworks.com) under Clients & Apps.
 
 Basic initialization example:
+
 ```objectivec
 // Provide a Mobiquity Networks Application Key and Secret.  Values can be obtained from
 // your panel account under Clients & Apps
@@ -93,6 +96,7 @@ As seen above, MNNotificationsManager's factory method offers an optional ```opt
 - activityIndicatorManaged: if set to YES (default value), status bar network activity indicator will be shown with the SDK network operations.
 - useIDFAWhenPossible: MNNotificationsManager will try to use [ASIdentifierManager sharedManager].advertisingIdentifier whenever is possible. You can disable this behaviour by setting it to NO. Then MNNotificationsManager will use [UIDevice identifierForVendor] instead. Read more in the **IDFA Use** chapter.
 - statsTrackingValues: You can append extra information that will be sent with your Mobiquity usage stats as a dictionary of key-value pairs:
+
 ```
 
     MNNMOptions *options = [[MNNMOptions alloc] init];    
@@ -226,6 +230,7 @@ MNNotificationsManager does not work on iOS 6 but it allows Apps to run on a dev
 ## iOS 9 Support
 
 iOS 9 offers two new features that will affect developing of apps with the latest iOS SDK and the current MNNotificationsManager version:
+
 - App Transport Security: Our SDK does not meet the App Transport Security requeriments yet. You should switch off App Transport Security support in your app [Info.plist](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html) 
 - Bitcode: We will support Bitcode very soon in a coming release. To develop using our current release, the app developer must switch off "Enable Bitcode" in the app Build Settings panel.
 
