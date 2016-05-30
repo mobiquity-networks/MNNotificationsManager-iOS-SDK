@@ -15,6 +15,7 @@
 #import "MNNMOptions.h"
 #import "MNUser.h"
 #import "MNPMUserStat.h"
+#import "MNNotificationsManagerVersion.h"
 
 static NSString *MNNotificationsManagerNotificationKey = @"com.mobiquitynetworks.mnnotificationsmanager.notificationkey";
 
@@ -29,13 +30,18 @@ static NSString *MNNotificationsManagerNotificationKey = @"com.mobiquitynetworks
 @interface MNNotificationsManager : NSObject
 
 /**
- * Delegate property for notificationsManager events. It can be assigned using this property or at initialization time with the factory method
+ * Delegate property for notificationsManager events.
  *
  * @warning Property is defined as weak, so you should keep a strong reference to delegate.
  *
- * @since v1.0 and later
+ * @since v1.0 
  */
-@property (nonatomic, weak) id<MNNotificationsManagerDelegate> delegate;
+@property (nonatomic, weak, readonly) id<MNNotificationsManagerDelegate> delegate;
+
+/**
+ * Version
+ */
++ (MNNotificationsManagerVersion *)notificationsManagerVersion;
 
 /**
  * Asynchronous static factory method for MNNotificationsManager
@@ -51,7 +57,7 @@ static NSString *MNNotificationsManagerNotificationKey = @"com.mobiquitynetworks
  *
  * @param completionHandler Completion block dispatched at main queue with a MNNotificationsManager instance or a NSError as parameters
  *
- * @since v1.0 and later
+ * @since v1.0 
  */
 + (void) notificationsManagerWithAppKey:(MNAppKey *)appKey
                                 options:(MNNMOptions *)options
@@ -64,14 +70,14 @@ static NSString *MNNotificationsManagerNotificationKey = @"com.mobiquitynetworks
 /**
  * Start scanning for nearest localized notifications
  *
- * @since v1.0 and later
+ * @since v1.0 
  */
 - (void) start;
 
 /**
  * Stop scanning for nearest localized notifications
  *
- * @since v1.0 and later
+ * @since v1.0 
  */
 - (void) stop;
 
@@ -86,7 +92,7 @@ static NSString *MNNotificationsManagerNotificationKey = @"com.mobiquitynetworks
  *
  * @discussion The service connection availability is tested by way of a ping-like connection attempt, using the user App Key. This way we can find server reachability and App Key errors.
  *
- * @since v1.0 and later
+ * @since v1.0 
  */
 + (void) serviceStatusWithAppKey:(MNAppKey *)appKey completionHandler:(void (^)(MNPMServiceStatus status))completionHandler;
 
@@ -97,7 +103,7 @@ static NSString *MNNotificationsManagerNotificationKey = @"com.mobiquitynetworks
  *
  * @discussion The authorization status of a given application is managed by the system and determined by several factors. Applications must be explicitly authorized to use location services by the user and location services must themselves currently be enabled for the system.
  *
- * @since v1.0 and later
+ * @since v1.0 
  */
 + (MNPMAuthorizationStatus) authorizationStatus;
 
@@ -108,7 +114,7 @@ static NSString *MNNotificationsManagerNotificationKey = @"com.mobiquitynetworks
  *
  * @discussion When a MNNotificationsManager object is initially created, the default value of this property is MNPMBluetoothStateUnknown. As the Bluetooth’s state changes, MNNotificationsManager updates the value of this property and calls the notificationsManager:didChangeBluetoothState: delegate method. For a list of the possible values representing the state of the central manager, see “MNNMBluetoothState” enum.
  *
- * @since v1.0 and later
+ * @since v1.0 
  */
 - (MNPMBluetoothState) bluetoothState;
 
@@ -117,7 +123,7 @@ static NSString *MNNotificationsManagerNotificationKey = @"com.mobiquitynetworks
  *
  * @return YES if MNNotificationsManager supports device's iOS version or NO if it does not.
  *
- * @since v1.0 and later
+ * @since v1.0 
  */
 + (BOOL) isOSVersionSupported;
 
@@ -152,7 +158,7 @@ static NSString *MNNotificationsManagerNotificationKey = @"com.mobiquitynetworks
  *  Send a user stat
  *
  *  @param userStat User event
- *  @since 1.0 and later
+ *  @since 1.0 
  */
 - (void) registerUserStat:(MNPMUserStat *)userStat;
 
@@ -162,7 +168,7 @@ static NSString *MNNotificationsManagerNotificationKey = @"com.mobiquitynetworks
  * @param userStat User event
  * @param completionHandler Completion block with a NSError as parameter
  *
- * @since v1.0 and later
+ * @since v1.0 
  */
 - (void) registerUserStat:(MNPMUserStat *)userStat withCompletionHandler:(void(^)(NSError *error))completionHandler;
 

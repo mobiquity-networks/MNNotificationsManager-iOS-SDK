@@ -19,5 +19,6 @@ typedef NS_ENUM(NSInteger, MNNotificationsManagerError) {
     MNNotificationsManagerErrorUpdating = 6,
     MNNotificationsManagerErrorReloadingGeofences = 7,
     MNNotificationsManagerErrorDB = 8,
-    MNNotificationsManagerErrorOptions = 9
+    MNNotificationsManagerErrorOptions = 9,
+    MNNotificationsManagerErrorParameters = 10
 };

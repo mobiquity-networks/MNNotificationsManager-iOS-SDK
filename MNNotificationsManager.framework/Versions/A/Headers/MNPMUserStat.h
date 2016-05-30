@@ -7,78 +7,59 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MNStat.h"
 
 /**
  * MNPMUserStatType Enum
  *
- * @since v2.0 and later
+ * @since v2.0 
  */
 typedef NS_ENUM(NSUInteger, MNPMUserStatType) {
     
     /**
-     * Viewed Campaign Stat
-     * Require Campaign in value
+     * Local Notification Impression Stat
+     * Require Campaign and Beacon/Geofence in value
      */
-    MNPMUserStatTypeCampaignViewed,
+    MNPMUserStatTypeLocalNotificationImpression = 0,
     
     /**
-     * Clicked Campaign Stat
-     * Require Campaign in value
+     * Local Notification Clicked Stat
+     * Require Campaign and Beacon/Geofence in value
      */
-    MNPMUserStatTypeCampaignClicked,
+    MNPMUserStatTypeLocalNotificationClicked,
     
     /**
-     * Viewed Campaign Stat
-     * Shared Campaign in value
+     * Advert Impression Stat
+     * Require Advert, Campaign and Beacon/Geofence in value
      */
-    MNPMUserStatTypeCampaignShared,
+    MNPMUserStatTypeAdvertImpression,
     
     /**
-     * Viewed Resource Stat
-     * Require Resource in value
+     * CallToAction Clicked Stat
+     * Require CallToAction, Ad, Campaign and Beacon/Geofence in value
      */
-    MNPMUserStatTypeResourceViewed,
+    MNPMUserStatTypeCallToActionClicked,
     
     /**
-     * Clicked Resource Stat
-     * Require Resource in value
+     * SDK Started
+     * No attached value required
      */
-    MNPMUserStatTypeResourceClicked,
+    MNPMUserStatTypeStarted,
     
     /**
-     * Shared Resource Stat
-     * Require Resource in value
+     * SDK Stopped
+     * No attached value required
      */
-    MNPMUserStatTypeResourceShared,
-    
-    /**
-     * Background Showed Notification Stat
-     * Require Notification and Beacon/Geofence in value
-     */
-    MNPMUserStatTypeLocalNotificationShowedInBackground,
-    
-    /**
-     * Foreground Showed Notification Stat
-     * Require Notification and Beacon/Geofence in value
-     */
-    MNPMUserStatTypeLocalNotificationShowedInForeground,
-    
-    /**
-     * Enter Foreground Using Notification Stat
-     * Require Notification and Beacon/Geofence in value
-     */
-    MNPMUserStatTypeLocalNotificationClicked
-    
+    MNPMUserStatTypeStopped
 };
 
-static NSString *MNPMUserStatValueCampaignKey = @"campaign";
-static NSString *MNPMUserStatValueResourceKey = @"resource";
-static NSString *MNPMUserStatValueNotificationKey = @"notification";
-static NSString *MNPMUserStatValueBeaconKey = @"beacon";
-static NSString *MNPMUserStatValueGeofenceKey = @"geofence";
+static NSString* const MNPMUserStatValueCampaignKey = @"campaign";
+static NSString* const MNPMUserStatValueBeaconKey = @"beacon";
+static NSString* const MNPMUserStatValueBeaconRegionKey = @"beaconRegion";
+static NSString* const MNPMUserStatValueGeofenceKey = @"geofence";
+static NSString* const MNPMUserStatValueAdvertKey = @"advert";
+static NSString* const MNPMUserStatValueCallToActionKey = @"callToAction";
 
-@interface MNPMUserStat : MNStat
+@interface MNPMUserStat : NSObject
 
 - (instancetype)initWithUserStatType:(MNPMUserStatType)userStatType value:(NSDictionary *)value;
 + (instancetype)userStatWithUserStatType:(MNPMUserStatType)userStatType value:(NSDictionary *)value;

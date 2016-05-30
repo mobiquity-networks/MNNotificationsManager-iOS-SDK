@@ -10,29 +10,21 @@
 
 /**
  *  MNPOI models a Point Of Interest
- *
- *  @since 1.1.0
  */
 @interface MNPOI : NSObject
 
 /**
  *  MNPOI's indentifier
- *
- *  @since 1.1.0
  */
 @property (nonatomic, strong, readonly) NSString *identifier;
 
 /**
  *  MNPOI's name
- *
- *  @since 1.1.0
  */
 @property (nonatomic, strong, readonly) NSString *name;
 
 /**
  *  MNPOI's type
- *
- *  @since 1.1.0
  */
 @property (nonatomic, strong, readonly) NSString *type;
 

@@ -1,5 +1,11 @@
 # MNNotificationsManager CHANGELOG
 
+## 1.2.0
+
+- Bitcode support
+- App Transport Security support
+- Bug fixes
+
 ## 1.1.1
 
 - Bug fixes

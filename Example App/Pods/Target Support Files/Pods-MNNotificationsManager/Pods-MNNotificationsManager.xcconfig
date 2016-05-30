@@ -1,2 +1,0 @@
-PODS_MNNOTIFICATIONSMANAGER_FRAMEWORK_SEARCH_PATHS = "$(PODS_ROOT)/../.."
-PODS_MNNOTIFICATIONSMANAGER_OTHER_LDFLAGS = -framework "AdSupport" -framework "CoreBluetooth" -framework "CoreData" -framework "CoreLocation" -framework "CoreTelephony" -framework "MNNotificationsManager" -framework "MobileCoreServices" -framework "UIKit"

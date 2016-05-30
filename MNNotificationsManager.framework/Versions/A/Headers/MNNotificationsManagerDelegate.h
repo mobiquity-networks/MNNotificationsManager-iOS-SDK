@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "MNProximityManagerDataTypes.h"
 #import "MNNMGeoInfo.h"
+#import "MNNMBeaconLocationSignal.h"
 
 @class MNNotificationsManager;
 
@@ -29,7 +30,7 @@
  *
  * @discussion This method is called whenever the application’s ability to use location services changes. Changes can occur because the user allowed or denied the use of location services for your application or for the system as a whole.
  *
- * @since v1.0 and later
+ * @since v1.0
  */
 - (void) notificationsManager:(MNNotificationsManager *)notificationsManager didChangeAuthorizationStatus:(MNPMAuthorizationStatus)status;
 
@@ -40,19 +41,34 @@
  *
  * @param state The new bluetooth state. For a list of possible values, see the <MNNMBluetoothState> type.
  *
- * @since v1.0 and later
+ * @since v1.0
  */
 - (void) notificationsManager:(MNNotificationsManager *)notificationsManager didChangeBluetoothState:(MNPMBluetoothState)state;
 
 /**
- * Tells the delegate that it has discovered geo info of interest for the client in the current localization.
+ * Tells the delegate that it has discovered geographical info of interest for the client in the current localization.
  *
  * @param notificationsManager The notificationsManager object reporting the event.
  *
  * @param geoInfo A MNNMGeoInfo instance object containing information about the found place of interest.
  *
- * @since v1.1 and later
+ * @since v1.1
+ *
+ * @deprecated v1.2
+ *
  */
-- (void) notificationsManager:(MNNotificationsManager *)notificationsManager didDiscoveredGeoInfo:(MNNMGeoInfo *)geoInfo;
+- (void) notificationsManager:(MNNotificationsManager *)notificationsManager didDiscoveredGeoInfo:(MNNMGeoInfo *)geoInfo __attribute((deprecated("use notificationsManager:beaconLocationSignal: instead")));
+
+/**
+ * Tells the delegate that it has discovered a location of interest for the client in the current localization.
+ *
+ * @param notificationsManager The notificationsManager object reporting the event.
+ *
+ * @param beaconLocation A MNNMBeaconLocation instance object containing information about the found place of interest.
+ *
+ * @since v1.2
+ *
+ */
+- (void) notificationsManager:(MNNotificationsManager *)notificationsManager beaconLocationSignal:(MNNMBeaconLocationSignal *)beaconLocationSignal;
 
 @end

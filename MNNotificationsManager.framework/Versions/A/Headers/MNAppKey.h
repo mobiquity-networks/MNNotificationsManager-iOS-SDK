@@ -15,13 +15,13 @@
 
 /**
  * Application Key
- * @since v1.0 and later
+ * @since v1.0 
  */
 @property (nonatomic, strong) NSString *appKey;
 
 /**
  * Application Secret Key
- * @since v1.0 and later
+ * @since v1.0 
  */
 @property (nonatomic, strong) NSString *secretKey;
 

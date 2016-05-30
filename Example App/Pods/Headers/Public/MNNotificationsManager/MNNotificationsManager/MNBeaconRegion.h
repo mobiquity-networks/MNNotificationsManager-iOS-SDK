@@ -1,0 +1,1 @@
+../../../../../../MNNotificationsManager.framework/Versions/A/Headers/MNBeaconRegion.h

@@ -8,25 +8,25 @@
 
 #import <Foundation/Foundation.h>
 
-#define kMNUserAudienceGenreMale @"M"
-#define kMNUserAudienceGenreFemale @"F"
+static NSString* const kMNUserAudienceGenderMale = @"M";
+static NSString* const kMNUserAudienceGenderFemale = @"F";
 
-#define kMNUserAudienceEducationCollege @"CLL"
-#define kMNUserAudienceEducationGradSchool @"GS"
-#define kMNUserAudienceEducationNoCollege @"NCLL"
+static NSString* const kMNUserAudienceEducationCollege = @"CLL";
+static NSString* const kMNUserAudienceEducationGradSchool = @"GS";
+static NSString* const kMNUserAudienceEducationNoCollege = @"NCLL";
 
-#define kMNUserAudienceEthnicityAfricanAmerican @"AA"
-#define kMNUserAudienceEthnicityAsian @"AS"
-#define kMNUserAudienceEthnicityCaucasian @"CC"
-#define kMNUserAudienceEthnicityHispanic @"HP"
+static NSString* const kMNUserAudienceEthnicityAfricanAmerican = @"AA";
+static NSString* const kMNUserAudienceEthnicityAsian = @"AS";
+static NSString* const kMNUserAudienceEthnicityCaucasian = @"CC";
+static NSString* const kMNUserAudienceEthnicityHispanic = @"HP";
 
-#define kMNUserAudienceIncomeUpTo30k @{@"min": @0, @"max": @30000}
-#define kMNUserAudienceIncome30k60k @{@"min": @30000, @"max": @60000}
-#define kMNUserAudienceIncome60k100k @{@"min": @60000, @"max": @100000}
-#define kMNUserAudienceIncomeOver100k @{@"min": @100000, @"max": @NSUIntegerMax}
+static NSString* const kMNUserAudienceIncomeUpTo30k = @"R_00_30";
+static NSString* const kMNUserAudienceIncome30k60k = @"R_30_60";
+static NSString* const kMNUserAudienceIncome60k100k = @"R_60_100";
+static NSString* const kMNUserAudienceIncomeOver100k = @"R_100_";
 
-#define kMNUserAudienceMaritalStatusSingle @"SG"
-#define kMNUserAudienceMaritalStatusMarried @"MD"
+static NSString* const kMNUserAudienceMaritalStatusSingle = @"SG";
+static NSString* const kMNUserAudienceMaritalStatusMarried = @"MD";
 
 /**
  * MNUserAudience models the user profile.
@@ -35,57 +35,48 @@
 
 /**
  * User Age
- * @since v1.0
  */
 @property (nonatomic, strong) NSDate *birthday;
 
 /**
  * User Genre
- * @since v1.0
  */
 @property (nonatomic, strong) NSString *gender;
 
 /**
  * User Education
- * @since v1.0
  */
 @property (nonatomic, strong) NSString *education;
 
 /**
  * User Ethnicity
- * @since v1.0
  */
 @property (nonatomic, strong) NSString *ethnicity;
 
 /**
  * User Income
- * @since v1.0
  */
-@property (nonatomic, strong) NSDictionary *income;
+@property (nonatomic, strong) NSString *income;
 
 /**
  * User Kids
- * @since v1.0
  */
 @property (nonatomic, assign) NSUInteger kids;
 
 /**
  * User Marital Status
- * @since v1.0
  */
 @property (nonatomic, strong) NSString *maritalStatus;
 
 /**
  * User preferred language as a 639-1 ISO code. If not available under that spec,
  * use the 639-2 ISO code.
- * @since v1.6
  */
 @property (nonatomic, strong) NSString *language;
 
 /**
  * An array of NSString objects representing custom tags to associate with the 
  * user.
- * @since v1.6
  */
 @property (nonatomic, strong) NSArray *tags;
 
