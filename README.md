@@ -132,6 +132,7 @@ static NSString* const kMNUserAudienceGenderFemale = @"F";
 static NSString* const kMNUserAudienceEducationCollege = @"CLL";
 static NSString* const kMNUserAudienceEducationGradSchool = @"GS";
 static NSString* const kMNUserAudienceEducationNoCollege = @"NCLL";
+...
 
 ```
 Only assign constants to the MNUserAudience properties 
