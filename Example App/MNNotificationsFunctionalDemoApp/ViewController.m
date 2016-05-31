@@ -21,7 +21,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self notificationsManagerInitialization];
+    if ([MNNotificationsManager isOSVersionSupported]) {
+        [self notificationsManagerInitialization];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
