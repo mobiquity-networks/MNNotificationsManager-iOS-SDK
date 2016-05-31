@@ -135,14 +135,15 @@ static NSString* const kMNUserAudienceEducationNoCollege = @"NCLL";
 ...
 
 ```
+
 Only assign constants to the MNUserAudience properties 
 
 userAudience.gender = kMNUserAudienceGenderFemale;
 userAudience.maritalStatus = kMNUserAudienceMaritalStatusMarried;
 userAudience.kids = 2;
 
-```
 
+```
 
 See ```MNUser``` and ```MNUserAudience``` reference for a description of each property.
 
