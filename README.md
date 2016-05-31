@@ -132,16 +132,17 @@ static NSString* const kMNUserAudienceGenderFemale = @"F";
 static NSString* const kMNUserAudienceEducationCollege = @"CLL";
 static NSString* const kMNUserAudienceEducationGradSchool = @"GS";
 static NSString* const kMNUserAudienceEducationNoCollege = @"NCLL";
+...
 
 ```
 Only assign constants to the MNUserAudience properties 
 
+```objectivec
 userAudience.gender = kMNUserAudienceGenderFemale;
 userAudience.maritalStatus = kMNUserAudienceMaritalStatusMarried;
 userAudience.kids = 2;
 
 ```
-
 
 See ```MNUser``` and ```MNUserAudience``` reference for a description of each property.
 
