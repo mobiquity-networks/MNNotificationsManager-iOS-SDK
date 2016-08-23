@@ -1,5 +1,9 @@
 # MNNotificationsManager CHANGELOG
 
+## 1.2.1
+
+- Fixed incorrect key in bundle file.
+
 ## 1.2.0
 
 - Bitcode support
