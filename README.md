@@ -206,12 +206,17 @@ MNNotificationsManager requires the application to be authorized to use Location
 
 #### Geographical information discovering
 
-The delegate object is also notified when relevant information for your app is found in the current location. To take advantage of this information, you should implement the delegate method shown in the following sample code:
+The delegate object is also notified when relevant information for your app is found in the current location, because of a beacon or the crossing of a geofence. To take advantage of this information, you should implement the delegate methods shown in the following sample code:
 
 ```objectivec
-- (void) notificationsManager:(MNNotificationsManager *)notificationsManager beaconLocationSignal:(MNNMBeaconLocationSignal *)beaconLocationSignal;
+- (void) notificationsManager:(MNNotificationsManager *)notificationsManager beaconLocationSignal:(MNNMBeaconLocationSignal *)beaconLocationSignal
 {
     NSLog(@"Discovered %lu POIs, in '%@'", (unsigned long) beaconLocationSignal.nearPOIs.count, beaconLocationSignal.venue.name);
+}
+
+- (void) notificationsManager:(MNNotificationsManager *)notificationsManager geofenceLocationSignal:(MNNMGeofenceLocationSignal *)geofenceLocationSignal
+{
+    NSLog(@"Discovered %lu POIs, in '%@'", (unsigned long) geofenceLocationSignal.nearPOIs.count, geofenceLocationSignal.geofence.name);
 }
 
 ```

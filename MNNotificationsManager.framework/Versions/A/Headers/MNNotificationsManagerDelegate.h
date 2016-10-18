@@ -10,6 +10,7 @@
 #import "MNProximityManagerDataTypes.h"
 #import "MNNMGeoInfo.h"
 #import "MNNMBeaconLocationSignal.h"
+#import "MNNMGeofenceLocationSignal.h"
 
 @class MNNotificationsManager;
 
@@ -70,5 +71,17 @@
  *
  */
 - (void) notificationsManager:(MNNotificationsManager *)notificationsManager beaconLocationSignal:(MNNMBeaconLocationSignal *)beaconLocationSignal;
+
+/**
+ * Tells the delegate that it has discovered a location of interest for the client in the current localization.
+ *
+ * @param notificationsManager The notificationsManager object reporting the event.
+ *
+ * @param geofenceLocationSignal A MNNMGeofenceLocation instance object containing information about the found place of interest.
+ *
+ * @since v1.3.0
+ *
+ */
+- (void) notificationsManager:(MNNotificationsManager *)notificationsManager geofenceLocationSignal:(MNNMGeofenceLocationSignal *)geofenceLocationSignal;
 
 @end

@@ -8,6 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+#import "MNVenue.h"
+#import "MNPOI.h"
+
+
 @interface MNLocation : NSObject
+
+@property (nonatomic, strong) MNVenue *venue;
+
+@property (nonatomic, strong) NSArray *nearPOIs;
 
 @end

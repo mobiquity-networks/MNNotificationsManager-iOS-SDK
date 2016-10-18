@@ -1,5 +1,10 @@
 # MNNotificationsManager CHANGELOG
 
+## 1.3.2
+
+- Added a new delegate callback for geofence associated information, -notificationsManager:geofenceLocationSignal:
+- Several under the hood improvements.
+
 ## 1.2.1
 
 - Fixed incorrect key in bundle file.

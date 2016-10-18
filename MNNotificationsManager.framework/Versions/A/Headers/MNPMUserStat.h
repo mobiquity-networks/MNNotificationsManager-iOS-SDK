@@ -59,6 +59,14 @@ static NSString* const MNPMUserStatValueGeofenceKey = @"geofence";
 static NSString* const MNPMUserStatValueAdvertKey = @"advert";
 static NSString* const MNPMUserStatValueCallToActionKey = @"callToAction";
 
+@interface MNPMUserStatContext : NSObject
+
+@property (nonatomic, assign, readonly) NSNumber *appState;
+
++ (instancetype) statContextWithAppState:(UIApplicationState)appState;
+
+@end
+
 @interface MNPMUserStat : NSObject
 
 - (instancetype)initWithUserStatType:(MNPMUserStatType)userStatType value:(NSDictionary *)value;
@@ -66,5 +74,7 @@ static NSString* const MNPMUserStatValueCallToActionKey = @"callToAction";
 
 - (instancetype)initWithUserStatCustomType:(NSString *)customStatType value:(NSDictionary *)value;
 + (instancetype)userStatWithUserStatCustomType:(NSString *)customStatType value:(NSDictionary *)value;
+
++ (instancetype)userStatWithUserStatType:(MNPMUserStatType)userStatType value:(NSDictionary *)value context:(MNPMUserStatContext *)context;
 
 @end

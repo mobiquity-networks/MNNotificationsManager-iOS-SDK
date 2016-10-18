@@ -7,8 +7,22 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "MNStatValue.h"
 #import "MNStatTypes.h"
+#import "MNPMUserLocation.h"
+
+@interface MNStatContext : NSObject
+
+@property (nonatomic, strong, readonly) NSDate *timestamp;
+
+@property (nonatomic, strong, readonly) MNPMUserLocation *userLocation;
+
+@property (nonatomic, assign, readonly) NSNumber *appState;
+
++ (instancetype) statContextWithTimestamp:(NSDate *)timestamp userLocation:(MNPMUserLocation *)userLocation appState:(NSNumber *)appState;
+
+@end
 
 @interface MNStat : NSObject
 
@@ -16,15 +30,9 @@
 
 @property (nonatomic, strong, readonly) MNStatValue *value;
 
-@property (nonatomic, strong, readonly) NSDate *timestamp;
+@property (nonatomic, strong, readonly) MNStatContext *context;
 
-- (instancetype) initWithType:(MNStatType)type value:(MNStatValue *)value timestamp:(NSDate *)timestamp;
-+ (instancetype) statWithType:(MNStatType)type value:(MNStatValue *)value timestamp:(NSDate *)timestamp;
-
-- (instancetype) initWithType:(MNStatType)type value:(MNStatValue *)value;
-+ (instancetype) statWithType:(MNStatType)type value:(MNStatValue *)value;
-
-- (instancetype) initWithType:(MNStatType)type object:(id)object;
-+ (instancetype) statWithType:(MNStatType)type object:(id)object;
++ (instancetype) statWithType:(MNStatType)type value:(MNStatValue *)value context:(MNStatContext *)context;
++ (instancetype) statWithType:(MNStatType)type object:(id)object context:(MNStatContext *)context;
 
 @end

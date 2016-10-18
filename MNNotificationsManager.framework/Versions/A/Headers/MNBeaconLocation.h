@@ -12,8 +12,6 @@
 
 @interface MNBeaconLocation : MNLocation
 
-@property (nonatomic, strong) MNVenue *venue;
 
-@property (nonatomic, strong) NSArray *nearPOIs;
 
 @end
