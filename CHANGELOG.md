@@ -1,5 +1,9 @@
 # MNNotificationsManager CHANGELOG
 
+## 1.3.3
+
+- Removed UIAlertView+Blocks pod and rewrote associated code to use delegate callbacks.
+
 ## 1.3.2
 
 - Added a new delegate callback for geofence associated information, -notificationsManager:geofenceLocationSignal:
