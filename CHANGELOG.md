@@ -1,5 +1,9 @@
 # MNNotificationsManager CHANGELOG
 
+## 2.0
+
+- Complete ground up rewrite of the existing SDK.  Now written in Swift.  Please follow directions for integration and usage closely.
+
 ## 1.3.3
 
 - Removed UIAlertView+Blocks pod and rewrote associated code to use delegate callbacks.

@@ -8,12 +8,11 @@
 
 
 #import "ViewController.h"
-#import "MNNotificationsManagerCustomDelegate.h"
+#import "MNNotificationsDelegate.h"
 
 @interface ViewController ()
 
-
-@property (nonatomic, strong) MNNotificationsManagerCustomDelegate *notificationsDelegate;
+@property (nonatomic, strong) MNNotificationsDelegate *notificationsDelegate;
 
 @end
 
@@ -21,43 +20,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    if ([MNNotificationsManager isOSVersionSupported]) {
-        [self notificationsManagerInitialization];
-    }
+    
+    [MNManager sharedInstance].delegate = self.notificationsDelegate;
+    [[MNManager sharedInstance] startSDK];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-}
-
-
-- (void)notificationsManagerInitialization
-{
-    // We instance an especific object dedicated to act as the delegate to Notifications Manager main ob
-    self.notificationsDelegate = [[MNNotificationsManagerCustomDelegate alloc] init];
-
-    // We instance the object containing the app key and secret needed to use the SDK
-    MNAppKey *appKey = [[MNAppKey alloc] initWithAppKey:@"providedAppKey" andSecretKey:@"providedAppSecret"];
-    
-    // Here we could instance custom MNUser and MNNMOptions objects to provide additional information for the Notifications Manager operation
-    
-    // Notifications Manager asynchronous initialization
-    [MNNotificationsManager notificationsManagerWithAppKey:appKey
-                                                   options:nil
-                                                      user:nil
-                                                  delegate:self.notificationsDelegate
-                                         completionHandler:^(MNNotificationsManager *notificationsManager, NSError *error) {
-                                             if (!error) {
-                                                 // If initialization ended without errors, we start the SDK
-                                                 [notificationsManager start];
-                                                 // and keep strong reference to the manager
-                                                 self.notificationsManager = notificationsManager;
-                                             } else {
-                                                 NSLog(@"Error : %@",error.localizedDescription);
-                                             }
-                                         }];
-    
-
 }
 
 @end

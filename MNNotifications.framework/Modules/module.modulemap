@@ -1,0 +1,10 @@
+framework module MNNotifications {
+  umbrella header "MNNotifications.h"
+
+  export *
+  module * { export * }
+}
+
+module MNNotifications.Swift {
+    header "MNNotifications-Swift.h"
+}

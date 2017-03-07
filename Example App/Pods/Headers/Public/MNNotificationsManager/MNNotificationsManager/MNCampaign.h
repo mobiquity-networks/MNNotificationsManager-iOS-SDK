@@ -1,1 +1,0 @@
-../../../../../../MNNotificationsManager.framework/Versions/A/Headers/MNCampaign.h
