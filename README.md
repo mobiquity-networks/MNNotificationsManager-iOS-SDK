@@ -163,6 +163,7 @@ MNNotificationsDelegate
 ### Optional Delegate Methods ###
 
 **Note:** If you're implementing the authorization callback you need to import CoreLocation.
+
 **Note:** If you're implementing the Bluetooth state callback you need to import CoreBluetooth.
 
 **Swift**
