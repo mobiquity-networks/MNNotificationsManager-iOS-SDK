@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MNNotifications/MNNotifications-Swift.h>
+#import <CoreLocation/CoreLocation.h>
+#import <CoreBluetooth/CoreBluetooth.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+
+@interface AppDelegate : UIResponder <UIApplicationDelegate, MNNotificationsDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
 
 @end
 

@@ -24,10 +24,6 @@
 	<true/>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>We need 'Always' location support for the SDK to work correctly</string>
-	<key>UIBackgroundModes</key>
-	<array>
-		<string>location</string>
-	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

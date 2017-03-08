@@ -14,9 +14,9 @@
 		EA91307F1A4192420077BB6F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA91307E1A4192420077BB6F /* Images.xcassets */; };
 		EA9130821A4192420077BB6F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA9130801A4192420077BB6F /* LaunchScreen.xib */; };
 		EA91308E1A4192420077BB6F /* MNNotificationsFunctionalDemoAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EA91308D1A4192420077BB6F /* MNNotificationsFunctionalDemoAppTests.m */; };
-		EA91309B1A4194980077BB6F /* MNNotificationsDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EA91309A1A4194980077BB6F /* MNNotificationsDelegate.m */; };
 		FF27D8221E6F73480027C0A0 /* MNNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF27D8201E6F733F0027C0A0 /* MNNotifications.framework */; };
 		FF27D8231E6F73480027C0A0 /* MNNotifications.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FF27D8201E6F733F0027C0A0 /* MNNotifications.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FF27D8251E6F78080027C0A0 /* mobiquity.plist in Resources */ = {isa = PBXBuildFile; fileRef = FF27D8241E6F78080027C0A0 /* mobiquity.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,10 +57,9 @@
 		EA9130871A4192420077BB6F /* MNNotificationsFunctionalDemoAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MNNotificationsFunctionalDemoAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA91308C1A4192420077BB6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA91308D1A4192420077BB6F /* MNNotificationsFunctionalDemoAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MNNotificationsFunctionalDemoAppTests.m; sourceTree = "<group>"; };
-		EA9130991A4194980077BB6F /* MNNotificationsDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNNotificationsDelegate.h; sourceTree = "<group>"; };
-		EA91309A1A4194980077BB6F /* MNNotificationsDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNNotificationsDelegate.m; sourceTree = "<group>"; };
 		EA91309C1A4198710077BB6F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FF27D8201E6F733F0027C0A0 /* MNNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MNNotifications.framework; path = ../MNNotifications.framework; sourceTree = "<group>"; };
+		FF27D8241E6F78080027C0A0 /* mobiquity.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = mobiquity.plist; path = ../mobiquity.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +112,7 @@
 		EA9130701A4192420077BB6F /* MNNotificationsFunctionalDemoApp */ = {
 			isa = PBXGroup;
 			children = (
+				FF27D8241E6F78080027C0A0 /* mobiquity.plist */,
 				EA9130751A4192420077BB6F /* AppDelegate.h */,
 				EA9130761A4192420077BB6F /* AppDelegate.m */,
 				EA9130781A4192420077BB6F /* ViewController.h */,
@@ -121,8 +121,6 @@
 				EA91307E1A4192420077BB6F /* Images.xcassets */,
 				EA9130801A4192420077BB6F /* LaunchScreen.xib */,
 				EA9130711A4192420077BB6F /* Supporting Files */,
-				EA9130991A4194980077BB6F /* MNNotificationsDelegate.h */,
-				EA91309A1A4194980077BB6F /* MNNotificationsDelegate.m */,
 			);
 			path = MNNotificationsFunctionalDemoApp;
 			sourceTree = "<group>";
@@ -206,7 +204,7 @@
 						DevelopmentTeam = CCNC55M6P5;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -240,6 +238,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF27D8251E6F78080027C0A0 /* mobiquity.plist in Resources */,
 				EA91307D1A4192420077BB6F /* Main.storyboard in Resources */,
 				EA9130821A4192420077BB6F /* LaunchScreen.xib in Resources */,
 				EA91307F1A4192420077BB6F /* Images.xcassets in Resources */,
@@ -263,7 +262,6 @@
 				EA91307A1A4192420077BB6F /* ViewController.m in Sources */,
 				EA9130771A4192420077BB6F /* AppDelegate.m in Sources */,
 				EA9130741A4192420077BB6F /* main.m in Sources */,
-				EA91309B1A4194980077BB6F /* MNNotificationsDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

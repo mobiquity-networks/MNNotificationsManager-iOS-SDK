@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import <MNNotifications/MNNotifications-Swift.h>
 
 @interface AppDelegate ()
 
@@ -23,6 +22,9 @@
     if (notification) {
         [self application:application didReceiveLocalNotification:notification];
     }
+    
+    [MNManager sharedInstance].delegate = self;
+    [[MNManager sharedInstance] startSDK];
     
     return YES;
 }
@@ -56,6 +58,22 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
 
+}
+
+- (void)mnManagerDidRangeBeacon:(MNBeaconLocationSignal * _Nonnull)beaconLocationSignal {
+    NSLog(@"The SDK saw a known beacon, you can retrieve information such as venue from the MNBeaconLocationSignal.");
+}
+
+- (void)mnManagerDidChangeAuthorizationStatus:(CLAuthorizationStatus)status {
+    NSLog(@"The Authorization state just changed to either Denied or Restricted. You should prompt your user to change it back.");
+}
+
+- (void)mnManagerDidChangeBluetoothState:(CBCentralManagerState)state {
+    NSLog(@"The Bluetooth on the device was just de-activated.  You might want to prompt your user to turn it back on.");
+}
+
+- (void)mnManagerDidFailWithError:(NSError * _Nonnull)error {
+    NSLog(@"The MNNotifications SDK ran into some issues. The errors reported here will be able to be rectified by you. These include things such as incorrect or missing App Key and Secret.");
 }
 
 @end

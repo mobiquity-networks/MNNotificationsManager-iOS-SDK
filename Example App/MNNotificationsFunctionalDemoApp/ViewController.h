@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MNNotifications/MNNotifications-Swift.h>
 
 @interface ViewController : UIViewController
 
