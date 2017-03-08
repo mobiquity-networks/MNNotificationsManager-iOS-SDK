@@ -44,10 +44,6 @@
 		<data>
 		94+mdLLRG/OjB9MEqBBPVeKN4jY=
 		</data>
-		<key>embedded.mobileprovision</key>
-		<data>
-		Lj4r6BIFmuyKc3BeW5LOIXoAh48=
-		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
@@ -148,17 +144,6 @@
 			<key>hash2</key>
 			<data>
 			xGqoCKBzFcOINWq+OXEwmSVH6td0LPxFqtjvFp8gd6k=
-			</data>
-		</dict>
-		<key>embedded.mobileprovision</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			Lj4r6BIFmuyKc3BeW5LOIXoAh48=
-			</data>
-			<key>hash2</key>
-			<data>
-			7C3fzCRvfSSn/ad2XeuNl+MzWMrz7VAv5Pn+hB3CHYU=
 			</data>
 		</dict>
 	</dict>
