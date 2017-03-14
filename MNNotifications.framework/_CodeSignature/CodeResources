@@ -26,19 +26,19 @@
 		</data>
 		<key>Modules/MNNotifications.swiftmodule/arm.swiftdoc</key>
 		<data>
-		II2fQlWQEw0EiZHC374YeJyQ/5M=
+		CSY2d05kEa4UIU40WHW6LVgAAmo=
 		</data>
 		<key>Modules/MNNotifications.swiftmodule/arm.swiftmodule</key>
 		<data>
-		iFWuomXfI1nriJaMMOFQh9GKTDU=
+		Dz0nfiVx/PHy9comvbXEUlRIbRw=
 		</data>
 		<key>Modules/MNNotifications.swiftmodule/arm64.swiftdoc</key>
 		<data>
-		yALit1BpY1g7rR2sUw5tBI2SAho=
+		IDd66rp4gV0c/OsO6DTJiCPXtBU=
 		</data>
 		<key>Modules/MNNotifications.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		WmJdUyAcADPL3gUFmaJS3ELD+KE=
+		A0G94p9dSBQQw5Z1oqyHt0JTTes=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -95,44 +95,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			II2fQlWQEw0EiZHC374YeJyQ/5M=
+			CSY2d05kEa4UIU40WHW6LVgAAmo=
 			</data>
 			<key>hash2</key>
 			<data>
-			PHPjTJCCZUwds8CsbpwSuqp4eBo8PagAea6YJfjb3f0=
+			HVga4h0nIbHyAupesNGAECja41n62niO8bdL7psFG24=
 			</data>
 		</dict>
 		<key>Modules/MNNotifications.swiftmodule/arm.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			iFWuomXfI1nriJaMMOFQh9GKTDU=
+			Dz0nfiVx/PHy9comvbXEUlRIbRw=
 			</data>
 			<key>hash2</key>
 			<data>
-			CgStwuTr8C2jOPcPB8CZYE+Qu25+Mo9r5Bmr/UszPdA=
+			M3h6pxKqbfZ66K5KBgtH56b1aO+s6xzXkgEX3zMCZ8Q=
 			</data>
 		</dict>
 		<key>Modules/MNNotifications.swiftmodule/arm64.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			yALit1BpY1g7rR2sUw5tBI2SAho=
+			IDd66rp4gV0c/OsO6DTJiCPXtBU=
 			</data>
 			<key>hash2</key>
 			<data>
-			F2wunTWhZbDj5CXTrsdAZ3o4sWXZJ9bvwOdnJWQfx2M=
+			eAi7kZC8Q9nFVGHDMVChPbYTphNcBK8/xdJJC21fetY=
 			</data>
 		</dict>
 		<key>Modules/MNNotifications.swiftmodule/arm64.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			WmJdUyAcADPL3gUFmaJS3ELD+KE=
+			A0G94p9dSBQQw5Z1oqyHt0JTTes=
 			</data>
 			<key>hash2</key>
 			<data>
-			BYqINM6wRADJ75uC02hxVp6tVha8qdPZGj7Utd133r4=
+			GywJYXh8B5+IKw5dYrBQqc5TybvsEyuyIohjhpFZF6w=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
