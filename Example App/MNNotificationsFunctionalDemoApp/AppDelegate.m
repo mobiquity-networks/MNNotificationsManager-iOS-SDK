@@ -32,9 +32,9 @@
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
 {
     // Notifications Manager SDK makes use of local notifications to show alerts to the user.
-    if ([[MNManager sharedInstance] isMNNotification:notification]) {
+    if ([[MNManager sharedInstance] isMNNotificationWithNotification:notification]) {
         NSLog(@"This Notification belongs to the MNNotifications SDK, it should be passed to it to be handled.");
-        [[MNManager sharedInstance] processLocalNotification:notification];
+        [[MNManager sharedInstance] processLocalNotificationWithNotification:notification];
     } else {
         NSLog(@"This Notification does not belong to the MNNotifications SDK.");
     }
@@ -60,19 +60,19 @@
 
 }
 
-- (void)mnManagerDidRangeBeacon:(MNBeaconLocationSignal * _Nonnull)beaconLocationSignal {
+- (void)mnManagerDidRangeBeaconWithBeaconLocationSignal:(MNBeaconLocationSignal *)beaconLocationSignal {
     NSLog(@"The SDK saw a known beacon, you can retrieve information such as venue from the MNBeaconLocationSignal.");
 }
 
-- (void)mnManagerDidChangeAuthorizationStatus:(CLAuthorizationStatus)status {
+- (void)mnManagerDidChangeAuthorizationStatusWithStatus:(CLAuthorizationStatus)status {
     NSLog(@"The Authorization state just changed to either Denied or Restricted. You should prompt your user to change it back.");
 }
 
-- (void)mnManagerDidChangeBluetoothState:(CBCentralManagerState)state {
+- (void)mnManagerDidPowerOffBluetooth {
     NSLog(@"The Bluetooth on the device was just de-activated.  You might want to prompt your user to turn it back on.");
 }
 
-- (void)mnManagerDidFailWithError:(NSError * _Nonnull)error {
+- (void)mnManagerDidFailWithErrorWithError:(NSError *)error {
     NSLog(@"The MNNotifications SDK ran into some issues. The errors reported here will be able to be rectified by you. These include things such as incorrect or missing App Key and Secret.");
 }
 

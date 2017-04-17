@@ -1,6 +1,14 @@
-# Migration From Previous Versions #
+# iOS Mobiquity Networks SDK V2 #
 
-This version of the SDK is a complete rewrite and thus all the integration, entry points, and delegates have been redone.  As such, we’ve attempted to cover all points of upgrading from a previous version.  If you’re newly installing this SDK, then feel free to skip this section and head down to the section below titled “Installation”
+## Release Notes ##
+* **2.1.0**
+    * Re-Release of 2.0 Supporting Swift 3.1
+* **2.0.0**
+    * Initial 2.0 Release Supporting Swift 2.2
+
+# Migration From Pre-2.0 Versions #
+
+This version of the SDK is a complete rewrite from version 1.x and thus all the integration, entry points, and delegates have been redone. As such, we’ve attempted to cover all points of upgrading from a previous version. If you’re newly installing this SDK, then feel free to skip this section and head down to the section below titled “Installation".
 
 To start with, you’ll need to remove all references to the current SDK and delete it from your project.  If it was manually added to your project, simply delete both MNNotificationsManager.framework and MNProximityManager.bundle.  If it was added through cocoapods, you’ll need to do a few extra steps.
 
@@ -178,10 +186,10 @@ func mnManagerDidFailWithError(error: NSError)
 **Objective-C**
 
 ```
-- (void)mnManagerDidRangeBeacon:(MNBeaconLocationSignal *)beaconLocationSignal
-- (void)mnManagerDidChangeAuthorizationStatus:(CLAuthorizationStatus)status
-- (void)mnManagerDidChangeBluetoothState:(CBCentralManagerState)state
-- (void)mnManagerDidFailWithError:(NSError *)error
+- (void)mnManagerDidRangeBeaconWithBeaconLocationSignal:(MNBeaconLocationSignal *)beaconLocationSignal
+- (void)mnManagerDidChangeAuthorizationStatusWithStatus:(CLAuthorizationStatus)status
+- (void)mnManagerDidPowerOffBluetooth
+- (void)mnManagerDidFailWithErrorWithError:(NSError *)error
 ```
 
 # Local Notifications #
@@ -221,16 +229,16 @@ func application(application: UIApplication, didReceiveLocalNotification notific
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
    UILocalNotification *notification = [launchOptions valueForKey:UIApplicationLaunchOptionsLocalNotificationKey];
    if (notification) {
-      if ([[MNManager sharedInstance] isMNNotification:notification]) {
-         [[MNManager sharedInstance] processLocalNotification:notification];
+      if ([[MNManager sharedInstance] isMNNotificationWithNotification:notification]) {
+         [[MNManager sharedInstance] processLocalNotificationWithNotification:notification];
       }
    }
 }
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
    if (notification) {
-      if ([[MNManager sharedInstance] isMNNotification:notification]) {
-         [[MNManager sharedInstance] processLocalNotification:notification];
+      if ([[MNManager sharedInstance] isMNNotificationWithNotification:notification]) {
+         [[MNManager sharedInstance] processLocalNotificationWithNotification:notification];
       }
    }
 
@@ -260,7 +268,7 @@ let previouslySetCustomVars:[String:String]? = MNManager.sharedInstance.getCusto
 //Setting CustomVars
 NSDictionary *customVars = @{@"var1": @"value1",
                              @"var2": @"value2"};
-[[MNManager sharedInstance] setCustomVars:customVars];
+[[MNManager sharedInstance] setCustomVarsWithCustomVars:customVars];
 
 //Retrieving CustomVars
 NSDictionary *previouslySetCustomVars = [[MNManager sharedInstance] getCustomVars];
@@ -286,7 +294,7 @@ let existingTags = MNManager.sharedInstance.getTags()
 ```
 // Setting CustomTags
 NSArray *customTags = @[@"tag2", @"tag2", @"tag3"];
-[[MNManager sharedInstance] setTags:customTags];
+[[MNManager sharedInstance] setTagsWithTags:customTags];
 
 // Retrieving CustomTags
 NSArray *existingCustomTags = [[MNManager sharedInstance] getTags];
@@ -325,22 +333,22 @@ existingDemographics?.education = MNEducation.NOT_SET
 ```
 // Settings demographics information
 MNDemographics *demographics = [[MNDemographics alloc] init];
-demographics.education = MNEducationCOLLEGE;
-demographics.ethnicity = MNEthnicityCAUSASIAN;
-demographics.gender = MNGenderMALE;
-demographics.income = MNIncomeRangeRANGE_$100001_;
-demographics.maritalStatus = MNMaritalStatusMARRIED;
+demographics.education = MNEducationCollege;
+demographics.ethnicity = MNEthnicityAsian;
+demographics.gender = MNGenderMale;
+demographics.income = MNIncomeRangeRange_$100001_;
+demographics.maritalStatus = MNMaritalStatusMarried;
 demographics.numberOfKids = [NSNumber numberWithInt:1];
 demographics.birthday = @"1983-09-28";
 demographics.lang = [[NSLocale preferredLanguages] objectAtIndex:0];
 
-[[MNManager sharedInstance] setDemographics:demographics];
+[[MNManager sharedInstance] setDemographicsWithDemographics:demographics];
 
 // Retrieving demographics
 MNDemographics *existingDemographics = [[MNManager sharedInstance] getDemographics];
 
 // To remove a currently set demographic, some can set to nil, others use the NOT_SET enum.
-existingDemographics.education = MNEducationNOT_SET;
+existingDemographics.education = MNEducationNot_SET;
 ```
 
 # Custom Events #
