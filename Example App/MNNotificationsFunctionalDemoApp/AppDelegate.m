@@ -25,7 +25,7 @@
     
     [MNManager sharedInstance].delegate = self;
     [[MNManager sharedInstance] startSDK];
-    
+
     return YES;
 }
 

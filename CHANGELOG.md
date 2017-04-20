@@ -1,5 +1,13 @@
 # MNNotificationsManager CHANGELOG
 
+## 2.1.1
+
+- Bug fix for issue in field with PersistenStoreCoordinator creation.
+
+## 2.1
+
+- Update Swift standard libraries to 3.1 and associated code changes to support it.
+
 ## 2.0
 
 - Complete ground up rewrite of the existing SDK.  Now written in Swift.  Please follow directions for integration and usage closely.
