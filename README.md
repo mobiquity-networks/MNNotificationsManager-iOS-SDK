@@ -1,6 +1,8 @@
 # iOS Mobiquity Networks SDK V2 #
 
 ## Release Notes ##
+* **2.1.2**
+    * Bug Fix
 * **2.1.1**
     * Fix for issue found in field with PersistentStoreCoordinator creation.
 * **2.1.0**

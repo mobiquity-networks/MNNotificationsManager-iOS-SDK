@@ -2,6 +2,10 @@
 
 ## 2.1.1
 
+- Bug fix for Core Data crash
+
+## 2.1.1
+
 - Bug fix for issue in field with PersistenStoreCoordinator creation.
 
 ## 2.1
