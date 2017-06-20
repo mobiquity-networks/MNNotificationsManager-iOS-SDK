@@ -1,6 +1,11 @@
 # iOS Mobiquity Networks SDK V2 #
 
 ## Release Notes ##
+* **2.5**
+    * Improved location accuracy
+    * Increased location data points
+    * Optimized energy management
+    * Various minor bug fixes
 * **2.1.2**
     * Bug Fix
 * **2.1.1**
@@ -160,7 +165,7 @@ MNManager.sharedInstance.startSDK()
 
 And that’s it! The SDK will now start and run in the background without any further integration required.  We do, however, recommend implementing the optional delegate callback methods below.
 
-The current version of the framework only supports Swift 2.2.  A future version to support Swift 2.3 and another to support Swift 3.0 are both coming soon.
+The current version of the framework supports Swift 3.1.
 
 ## Delegates ##
 

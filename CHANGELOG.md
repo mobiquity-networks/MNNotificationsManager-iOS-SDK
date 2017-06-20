@@ -1,6 +1,13 @@
 # MNNotificationsManager CHANGELOG
 
-## 2.1.1
+## 2.5
+
+- Improved location accuracy
+- Increased location data points
+- Optimized energy management
+- Various minor bug fixes
+
+## 2.1.2
 
 - Bug fix for Core Data crash
 
