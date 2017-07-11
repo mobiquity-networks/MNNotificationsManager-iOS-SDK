@@ -1,6 +1,8 @@
 # iOS Mobiquity Networks SDK V2 #
 
 ## Release Notes ##
+* **2.5.1**
+    * Improved device tracking
 * **2.5**
     * Improved location accuracy
     * Increased location data points

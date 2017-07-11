@@ -1,5 +1,9 @@
 # MNNotificationsManager CHANGELOG
 
+## 2.5.1
+
+- Improved device tracking
+
 ## 2.5
 
 - Improved location accuracy
