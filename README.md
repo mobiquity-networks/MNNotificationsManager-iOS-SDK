@@ -116,9 +116,13 @@ The MNNotifications.framework currently supports iOS 8.0 and up.
 
 
 
-## Pod file ##
+## CocoaPods ##
 
-We currently do not support installation through Pod files since the manual installation is so easy.  Please contact Mobiquity Networks Inc. if you have any questions.
+Add the following line to your Podfile:
+
+```
+pod 'MNNotifications', :git => 'https://github.com/mobiquity-networks/MNNotificationsManager-iOS-SDK.git'
+```
 
 # Location Authorization Set-Up #
 
