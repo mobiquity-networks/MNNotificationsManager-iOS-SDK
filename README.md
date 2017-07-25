@@ -1,6 +1,8 @@
 # iOS Mobiquity Networks SDK V2 #
 
 ## Release Notes ##
+* **2.5.2**
+    * Re-Release 2.5.1 as Fat Framework
 * **2.5.1**
     * Improved device tracking
 * **2.5**
@@ -95,34 +97,104 @@ In the previous version of the SDK you could receive callbacks through a delegat
 
 # Installation #
 
-## Manual ##
-
 The MNNotifications.framework currently supports iOS 8.0 and up. 
-
-1. Drag and Drop MNNotifications.framework into the “Embedded Binaries” section of your app.  Ensure “Copy if required” is selected so that Xcode copies the framework into the correct location.
-
-    This will automatically link it and embed it into your app.  See screenshot below.
-
-    ![screenshot](http://i.imgur.com/ZqANjSa.png)
-
-
-2. This extra step is for those using Objective-C only
-
-    Xcode 7.x: In your build options, set “Embedded Content Contains Swift Code” to Yes.
-
-    Xcode 8.x and up: In your build options, set “Always Embed Swift Standard Libraries” to Yes
-
-    This is required since the framework is written in Swift.  If your app is already written in Swift, this step is not required.
-
-
 
 ## CocoaPods ##
 
-Add the following line to your Podfile:
+We recommend using the CocoaPods installation method as it's easier to consume a fat framework in your project.  
+
+Turn on framework support in your Podfile and add the following line to your Podfile:
 
 ```
 pod 'MNNotifications', :git => 'https://github.com/mobiquity-networks/MNNotificationsManager-iOS-SDK.git'
 ```
+
+## Manual ##
+
+1. Drag and Drop MNNotifications.framework into the “Embedded Binaries” section of your app.  Ensure “Copy if required” is selected so that Xcode copies the framework into the correct location.
+
+This will automatically link it and embed it into your app.  See screenshot below.
+
+![screenshot](http://i.imgur.com/ZqANjSa.png)
+
+
+2. This extra step is for those using Objective-C only
+
+Xcode 7.x: In your build options, set “Embedded Content Contains Swift Code” to Yes.
+
+Xcode 8.x and up: In your build options, set “Always Embed Swift Standard Libraries” to Yes
+
+This is required since the framework is written in Swift.  If your app is already written in Swift, this step is not required.
+
+
+3. Add required scripts to Build Phases of your project.
+
+You need to add 2 scripts to your Build Phases to strip the simulator slice from our fat framework on any archive build of your app. If this isn't done, it will be rejected from the App Store due to it containing the x86_64 and i386 slices of the framework.
+
+This has been adopted from a great blogpost on the subject available here: http://code.hootsuite.com/an-introduction-to-creating-and-distributing-embedded-frameworks-in-ios/
+
+Under the Build Phases tab, add a new run script phase, drag it so it's just after "Target Dependencies" and paste the following in the run script editor area:
+
+```
+# Removal script for simulator slices
+
+# Script provided by @bstover from http://code.hootsuite.com/an-introduction-to-creating-and-distributing-embedded-frameworks-in-ios/
+
+# 1
+# Set bash script to exit immediately if any commands fail.
+set -e
+
+# 2
+# Setup some constants for use later on.
+FRAMEWORK_NAME="MNNotifications"
+
+# 3
+# If there exists a backup version of the framework, restore it and remove backup
+if [[ -d "${SRCROOT}/backup" ]]; then
+    rm -rf "${SRCROOT}/${FRAMEWORK_NAME}.framework"
+    cp -rf "${SRCROOT}/backup/${FRAMEWORK_NAME}.framework" "${SRCROOT}/${FRAMEWORK_NAME}.framework"
+    rm -rf "${SRCROOT}/backup"
+fi
+
+# 4
+# Only perform the following steps when building for release on device
+if [[ "${CONFIGURATION}" == "Release" && "${SDKROOT}" == *"iPhoneOS"* ]]; then
+
+    # 5
+    # Create backup copy of framework
+    mkdir "${SRCROOT}/backup"
+    cp -rf "${SRCROOT}/${FRAMEWORK_NAME}.framework" "${SRCROOT}/backup/${FRAMEWORK_NAME}.framework"
+
+    # 6
+    # Strip out the unneeded architectures
+    lipo "${SRCROOT}/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}" -remove "i386" -output "${SRCROOT}/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}"
+    lipo "${SRCROOT}/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}" -remove "x86_64" -output "${SRCROOT}/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}"
+fi
+```
+
+Create a second run script phase and place it after "Embed Framework", and paste the following in the run script editor area:
+```
+# Replace Framework we removed simulator slices from with original backup
+
+# Script provided by @bstover from http://code.hootsuite.com/an-introduction-to-creating-and-distributing-embedded-frameworks-in-ios/
+
+# 1
+# Set bash script to exit immediately if any commands fail.
+set -e
+
+# 2
+# Setup some constants for use later on.
+FRAMEWORK_NAME="MNNotifications"
+
+# 3
+# Restore backup copy of framework and remove backup
+if [[ -d "${SRCROOT}/backup" ]]; then
+    rm -rf "${SRCROOT}/${FRAMEWORK_NAME}.framework"
+    cp -rf "${SRCROOT}/backup/${FRAMEWORK_NAME}.framework" "${SRCROOT}/${FRAMEWORK_NAME}.framework"
+    rm -rf "${SRCROOT}/backup"
+fi
+```
+
 
 # Location Authorization Set-Up #
 

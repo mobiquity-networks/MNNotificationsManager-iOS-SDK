@@ -158,10 +158,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EA9130911A4192420077BB6F /* Build configuration list for PBXNativeTarget "MNNotificationsFunctionalDemoApp" */;
 			buildPhases = (
+				FF181B301F27889D0090D0B2 /* Simulator Slice Removal And Framework Backup Script */,
 				EA91306A1A4192420077BB6F /* Sources */,
 				EA91306B1A4192420077BB6F /* Frameworks */,
 				EA91306C1A4192420077BB6F /* Resources */,
 				FFCDB42C1E6F6A0600FCE416 /* Embed Frameworks */,
+				FF181B311F2788D20090D0B2 /* Replace Framework Script */,
 			);
 			buildRules = (
 			);
@@ -253,6 +255,37 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		FF181B301F27889D0090D0B2 /* Simulator Slice Removal And Framework Backup Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Simulator Slice Removal And Framework Backup Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Removal script for simulator slices\n\n# Script provided by @bstover from http://code.hootsuite.com/an-introduction-to-creating-and-distributing-embedded-frameworks-in-ios/\n\n# 1\n# Set bash script to exit immediately if any commands fail.\nset -e\n\n# 2\n# Setup some constants for use later on.\nFRAMEWORK_NAME=\"MNNotifications\"\n\n# 3\n# If there exists a backup version of the framework, restore it and remove backup\nif [[ -d \"${SRCROOT}/backup\" ]]; then\nrm -rf \"${SRCROOT}/${FRAMEWORK_NAME}.framework\"\ncp -rf \"${SRCROOT}/backup/${FRAMEWORK_NAME}.framework\" \"${SRCROOT}/${FRAMEWORK_NAME}.framework\"\nrm -rf \"${SRCROOT}/backup\"\nfi\n\n# 4\n# Only perform the following steps when building for release on device\nif [[ \"${CONFIGURATION}\" == \"Release\" && \"${SDKROOT}\" == *\"iPhoneOS\"* ]]; then\n\n# 5\n# Create backup copy of framework\nmkdir \"${SRCROOT}/backup\"\ncp -rf \"${SRCROOT}/${FRAMEWORK_NAME}.framework\" \"${SRCROOT}/backup/${FRAMEWORK_NAME}.framework\"\n\n# 6\n# Strip out the unneeded architectures\nlipo \"${SRCROOT}/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}\" -remove \"i386\" -output \"${SRCROOT}/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}\"\nlipo \"${SRCROOT}/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}\" -remove \"x86_64\" -output \"${SRCROOT}/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}\"\nfi";
+		};
+		FF181B311F2788D20090D0B2 /* Replace Framework Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Replace Framework Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Replace Framework we removed simulator slices from with original backup\n\n# Script provided by @bstover from http://code.hootsuite.com/an-introduction-to-creating-and-distributing-embedded-frameworks-in-ios/\n\n# 1\n# Set bash script to exit immediately if any commands fail.\nset -e\n\n# 2\n# Setup some constants for use later on.\nFRAMEWORK_NAME=\"MNNotifications\"\n\n# 3\n# Restore backup copy of framework and remove backup\nif [[ -d \"${SRCROOT}/backup\" ]]; then\nrm -rf \"${SRCROOT}/${FRAMEWORK_NAME}.framework\"\ncp -rf \"${SRCROOT}/backup/${FRAMEWORK_NAME}.framework\" \"${SRCROOT}/${FRAMEWORK_NAME}.framework\"\nrm -rf \"${SRCROOT}/backup\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EA91306A1A4192420077BB6F /* Sources */ = {

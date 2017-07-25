@@ -1,5 +1,9 @@
 # MNNotificationsManager CHANGELOG
 
+## 2.5.2
+
+- Re-Release 2.5.1 as Fat Framework to support running on simulators
+
 ## 2.5.1
 
 - Improved device tracking
