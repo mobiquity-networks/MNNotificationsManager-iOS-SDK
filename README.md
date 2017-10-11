@@ -1,23 +1,6 @@
-# iOS Mobiquity Networks SDK V2 #
+![logo](http://www.mobiquitynetworks.com/wp-content/themes/mobiquity/images/logo.jpg)
 
-## Release Notes ##
-* **2.5.2**
-    * Re-Release 2.5.1 as Fat Framework
-* **2.5.1**
-    * Improved device tracking
-* **2.5**
-    * Improved location accuracy
-    * Increased location data points
-    * Optimized energy management
-    * Various minor bug fixes
-* **2.1.2**
-    * Bug Fix
-* **2.1.1**
-    * Fix for issue found in field with PersistentStoreCoordinator creation.
-* **2.1.0**
-    * Re-Release of 2.0 Supporting Swift 3.1
-* **2.0.0**
-    * Initial 2.0 Release Supporting Swift 2.2
+# iOS Mobiquity Networks SDK V2 #
 
 # Migration From Pre-2.0 Versions #
 
@@ -33,31 +16,31 @@ To remove an existing pod the easiest (and best) way is to use a couple Cocoapod
 
 1. Install deintegrate and clean:
 
-    ```
-    $ gem install cocoapods-deintegrate 
-    ```
+```
+$ gem install cocoapods-deintegrate
+```
 
-    ```
-    $ gem install cocoapods-clean
-    ```
+```
+$ gem install cocoapods-clean
+```
 
 2. Run deintegrate in the folder of the project:
 
-    ```
-    $ pod deintegrate
-    ```
+```
+$ pod deintegrate
+```
 
 3. Clean:
 
-    ```
-    $ pod clean
-    ```
+```
+$ pod clean
+```
 
 4. Modify your podfile (delete the line with the MNNotificationsManager) and run:
 
-    ```
-    $ pod install
-    ```
+```
+$ pod install
+```
 
 (Note: If your project no longer has any pods this last step can be skipped)
 
@@ -68,11 +51,11 @@ You can remove the existing linker flag –ObjC as it is no longer required by o
 
 ## AppKey/Secret ##
 
-In the previous version, the appkey and secret were passed to the new instance of the MNNotifications manager through the MNAppKey class.  The SDK will now read these from a property list file called mobiquity.plist.  Create a new plist file in XCode (plist files can be created via the File->New File dialog and selecting Resource type file and creating a Property List file).  You can then add your appkey and secret here using the keys “appkey” and “secret” respectively. 
+In the previous version, the appkey and secret were passed to the new instance of the MNNotifications manager through the MNAppKey class.  The SDK will now read these from a property list file called mobiquity.plist.  Create a new plist file in XCode (plist files can be created via the File->New File dialog and selecting Resource type file and creating a Property List file).  You can then add your appkey and secret here using the keys “appkey” and “secret” respectively.
 
 ## Instantiation ##
 
-In the previous version of the SDK you would use a completion block to either receive your instance of the notification manager, or any associated error while trying to instantiate it.  This has been changed to use a delegate callback.   There’s an interface called MNNotificationsDelegate that contains an optional method to receive any errors associated to the SDK.  These errors will contain descriptions, reasons, and a possible recovery solution.  
+In the previous version of the SDK you would use a completion block to either receive your instance of the notification manager, or any associated error while trying to instantiate it.  This has been changed to use a delegate callback.   There’s an interface called MNNotificationsDelegate that contains an optional method to receive any errors associated to the SDK.  These errors will contain descriptions, reasons, and a possible recovery solution.
 
 This delegate callback will be used anytime there’s an associated error in the framework that might be able to be solved by the application developer.  These are broken down into error code types which can be accessed as an enum in the MNManager shared instance (such as plist errors, location services errors, or deep linking errors).
 
@@ -97,11 +80,11 @@ In the previous version of the SDK you could receive callbacks through a delegat
 
 # Installation #
 
-The MNNotifications.framework currently supports iOS 8.0 and up. 
+The MNNotifications.framework currently supports iOS 8.0 and up.
 
 ## CocoaPods ##
 
-We recommend using the CocoaPods installation method as it's easier to consume a fat framework in your project.  
+We recommend using the CocoaPods installation method as it's easier to consume a fat framework in your project.
 
 Turn on framework support in your Podfile and add the following line to your Podfile:
 
@@ -151,28 +134,29 @@ FRAMEWORK_NAME="MNNotifications"
 # 3
 # If there exists a backup version of the framework, restore it and remove backup
 if [[ -d "${SRCROOT}/backup" ]]; then
-    rm -rf "${SRCROOT}/${FRAMEWORK_NAME}.framework"
-    cp -rf "${SRCROOT}/backup/${FRAMEWORK_NAME}.framework" "${SRCROOT}/${FRAMEWORK_NAME}.framework"
-    rm -rf "${SRCROOT}/backup"
+rm -rf "${SRCROOT}/${FRAMEWORK_NAME}.framework"
+cp -rf "${SRCROOT}/backup/${FRAMEWORK_NAME}.framework" "${SRCROOT}/${FRAMEWORK_NAME}.framework"
+rm -rf "${SRCROOT}/backup"
 fi
 
 # 4
 # Only perform the following steps when building for release on device
 if [[ "${CONFIGURATION}" == "Release" && "${SDKROOT}" == *"iPhoneOS"* ]]; then
 
-    # 5
-    # Create backup copy of framework
-    mkdir "${SRCROOT}/backup"
-    cp -rf "${SRCROOT}/${FRAMEWORK_NAME}.framework" "${SRCROOT}/backup/${FRAMEWORK_NAME}.framework"
+# 5
+# Create backup copy of framework
+mkdir "${SRCROOT}/backup"
+cp -rf "${SRCROOT}/${FRAMEWORK_NAME}.framework" "${SRCROOT}/backup/${FRAMEWORK_NAME}.framework"
 
-    # 6
-    # Strip out the unneeded architectures
-    lipo "${SRCROOT}/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}" -remove "i386" -output "${SRCROOT}/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}"
-    lipo "${SRCROOT}/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}" -remove "x86_64" -output "${SRCROOT}/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}"
+# 6
+# Strip out the unneeded architectures
+lipo "${SRCROOT}/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}" -remove "i386" -output "${SRCROOT}/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}"
+lipo "${SRCROOT}/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}" -remove "x86_64" -output "${SRCROOT}/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}"
 fi
 ```
 
 Create a second run script phase and place it after "Embed Framework", and paste the following in the run script editor area:
+
 ```
 # Replace Framework we removed simulator slices from with original backup
 
@@ -189,16 +173,23 @@ FRAMEWORK_NAME="MNNotifications"
 # 3
 # Restore backup copy of framework and remove backup
 if [[ -d "${SRCROOT}/backup" ]]; then
-    rm -rf "${SRCROOT}/${FRAMEWORK_NAME}.framework"
-    cp -rf "${SRCROOT}/backup/${FRAMEWORK_NAME}.framework" "${SRCROOT}/${FRAMEWORK_NAME}.framework"
-    rm -rf "${SRCROOT}/backup"
+rm -rf "${SRCROOT}/${FRAMEWORK_NAME}.framework"
+cp -rf "${SRCROOT}/backup/${FRAMEWORK_NAME}.framework" "${SRCROOT}/${FRAMEWORK_NAME}.framework"
+rm -rf "${SRCROOT}/backup"
 fi
 ```
 
 
 # Location Authorization Set-Up #
 
-MNNotifications framework uses the devices location both when the app is running foreground and when it’s in the background.  Thus, if you app doesn’t already support location awareness, you will need to add the following key to the Application’s Info.plist file:
+MNNotifications framework uses the devices location both when the app is running foreground and when it’s in the background.  Thus, if you app doesn’t already support location awareness, you will need to add the following keys to the Application’s Info.plist file:
+
+```
+￼NSLocationAlwaysAndWhenInUsageDescription
+￼NSLocationWhenInUseUsageDescription
+```
+
+If your app supports iOS10 and earlier you need to add the following key as well:
 
 ```
 ￼NSLocationAlwaysUsageDescription
@@ -206,8 +197,7 @@ MNNotifications framework uses the devices location both when the app is running
 
 References:
 
-* [ WWDC 2014 Session 706 “What’s New in Core Location” ](https://developer.apple.com/videos/play/wwdc2014/706/)
-* [ Core Location Manager Changes in iOS 8 ](http://nevan.net/2014/09/core-location-manager-changes-in-ios-8/)
+* [Request Always Authorization](https://developer.apple.com/documentation/corelocation/choosing_the_authorization_level_for_location_services/request_always_authorization)
 
 # Usage #
 
@@ -215,7 +205,7 @@ The entry point for all calls to the SDK is the shared instance of MNManager cla
 
 ## Adding AppKey/Secret ##
 
-Whether you’re using Swift or ObjectiveC we use a custom plist file in the application that contains the App Key and Secret (provided by Mobiquity Networks) along with some other options that can be set.  You’ll need to create a new plist file for you app titled “mobiquity.plist”.  At a minimum this plist must contain 2 entries: “appkey” and “secret”.  
+Whether you’re using Swift or ObjectiveC we use a custom plist file in the application that contains the App Key and Secret (provided by Mobiquity Networks) along with some other options that can be set.  You’ll need to create a new plist file for you app titled “mobiquity.plist”.  At a minimum this plist must contain 2 entries: “appkey” and “secret”.
 
 
 ## Starting the SDK ##
@@ -247,7 +237,7 @@ The current version of the framework supports Swift 3.1.
 
 ## Delegates ##
 
-There is an optional delegate with four optional methods to implement.  We recommend at a minimum to implement the error delegate method to handle any errors that might occur in the SDK (such as plist with your appkey/secret).  The others cover things such as Bluetooth being turned off (you will only receive this callback when BT is turned off so you can possibly alert the user), when the authorization status changes to denied or restricted (you will only receive this if it becomes denied or restricted), or when we range a beacon.  
+There is an optional delegate with four optional methods to implement.  We recommend at a minimum to implement the error delegate method to handle any errors that might occur in the SDK (such as plist with your appkey/secret).  The others cover things such as Bluetooth being turned off (you will only receive this callback when BT is turned off so you can possibly alert the user), when the authorization status changes to denied or restricted (you will only receive this if it becomes denied or restricted), or when we range a beacon.
 
 Setting the delegate is done through the MNManager shared instance.
 
@@ -280,7 +270,7 @@ func mnManagerDidFailWithError(error: NSError)
 ```
 
 # Local Notifications #
- 
+
 The SDK requires that any notification that has been displayed by the SDK be passed back to the SDK for proper handling.  You will need to override 2 methods in your app delegate and, using the provided methods in MNManager, pass the UILocalNotification to the SDK.
 
 Below you can find examples for both Swift and Objective-C.
@@ -289,22 +279,23 @@ Below you can find examples for both Swift and Objective-C.
 
 ```
 func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-   if let notification = launchOptions?[UIApplicationLaunchOptionsLocalNotificationKey] as? UILocalNotification {
-      if MNManager.sharedInstance.isMNNotification(notification) {
-         MNManager.sharedInstance.processLocalNotification(notification)
-      }
-   }
+	if let notification = launchOptions?[UIApplicationLaunchOptionsLocalNotificationKey] as? UILocalNotification {
+		if MNManager.sharedInstance.isMNNotification(notification) {
+			MNManager.sharedInstance.processLocalNotification(notification)
+		}
+	}
 
-   //Do any other work required/handle other notifications
+	//Do any other work required/handle other notifications
 
 }
 
 
 func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
-   if MNManager.sharedInstance.isMNNotification(notification) {
-      MNManager.sharedInstance.processLocalNotification(notification)
-   }
-   //Handle other type of notification
+	if MNManager.sharedInstance.isMNNotification(notification) {
+		MNManager.sharedInstance.processLocalNotification(notification)
+	}
+	
+	//Handle other type of notification
 }
 
 ```
@@ -314,21 +305,20 @@ func application(application: UIApplication, didReceiveLocalNotification notific
 
 ```
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-   UILocalNotification *notification = [launchOptions valueForKey:UIApplicationLaunchOptionsLocalNotificationKey];
-   if (notification) {
-      if ([[MNManager sharedInstance] isMNNotificationWithNotification:notification]) {
-         [[MNManager sharedInstance] processLocalNotificationWithNotification:notification];
-      }
-   }
+	UILocalNotification *notification = [launchOptions valueForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+	if (notification) {
+		if ([[MNManager sharedInstance] isMNNotificationWithNotification:notification]) {
+			[[MNManager sharedInstance] processLocalNotificationWithNotification:notification];
+		}
+	}
 }
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
-   if (notification) {
-      if ([[MNManager sharedInstance] isMNNotificationWithNotification:notification]) {
-         [[MNManager sharedInstance] processLocalNotificationWithNotification:notification];
-      }
-   }
-
+	if (notification) {
+		if ([[MNManager sharedInstance] isMNNotificationWithNotification:notification]) {
+			[[MNManager sharedInstance] processLocalNotificationWithNotification:notification];
+		}
+	}
 }
 
 ```
@@ -342,7 +332,7 @@ You can pass custom variables to the SDK through the MNManager instance.  This i
 ```
 //Setting CustomVars
 let customVars = ["var1": "value1",
-                  "var2": "value2"]
+"var2": "value2"]
 MNManager.sharedInstance.setCustomVars(customVars)
 
 //Retrieving CustomVars
@@ -354,7 +344,7 @@ let previouslySetCustomVars:[String:String]? = MNManager.sharedInstance.getCusto
 ```
 //Setting CustomVars
 NSDictionary *customVars = @{@"var1": @"value1",
-                             @"var2": @"value2"};
+@"var2": @"value2"};
 [[MNManager sharedInstance] setCustomVarsWithCustomVars:customVars];
 
 //Retrieving CustomVars
@@ -461,3 +451,26 @@ The Example App directory in the repository's root contains the source code for 
 # License #
 
 Mobiquity Technologies, Inc. All rights reserved. See the LICENSE file for more info.
+
+# Release Notes #
+* **2.6**
+    * Lower battery usage
+    * Further improvements to location accuracy
+    * iOS 11/Xcode 9/Swift 4 support
+* **2.5.2**
+    * Re-Release 2.5.1 as Fat Framework
+* **2.5.1**
+    * Improved device tracking
+* **2.5**
+    * Improved location accuracy
+    * Increased location data points
+    * Optimized energy management
+    * Various minor bug fixes
+* **2.1.2**
+    * Bug Fix
+* **2.1.1**
+    * Fix for issue found in field with PersistentStoreCoordinator creation.
+* **2.1.0**
+    * Re-Release of 2.0 Supporting Swift 3.1
+* **2.0.0**
+    * Initial 2.0 Release Supporting Swift 2.2

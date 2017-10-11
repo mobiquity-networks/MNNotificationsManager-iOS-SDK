@@ -7,4 +7,5 @@ framework module MNNotifications {
 
 module MNNotifications.Swift {
     header "MNNotifications-Swift.h"
+    requires objc
 }

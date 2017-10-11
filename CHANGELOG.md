@@ -1,5 +1,11 @@
 # MNNotificationsManager CHANGELOG
 
+## 2.6
+
+- Lower battery usage
+- Further improvements to location accuracy
+- iOS 11/Xcode 9/Swift 4 support
+
 ## 2.5.2
 
 - Re-Release 2.5.1 as Fat Framework to support running on simulators
