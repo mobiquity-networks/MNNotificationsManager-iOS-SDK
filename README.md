@@ -453,6 +453,8 @@ The Example App directory in the repository's root contains the source code for 
 Mobiquity Technologies, Inc. All rights reserved. See the LICENSE file for more info.
 
 # Release Notes #
+* **2.7**
+    * Added new event tracking
 * **2.6**
     * Lower battery usage
     * Further improvements to location accuracy

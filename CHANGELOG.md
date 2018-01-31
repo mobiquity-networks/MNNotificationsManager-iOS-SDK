@@ -1,5 +1,9 @@
 # MNNotificationsManager CHANGELOG
 
+## 2.7
+
+- Added new event tracking
+
 ## 2.6
 
 - Lower battery usage
