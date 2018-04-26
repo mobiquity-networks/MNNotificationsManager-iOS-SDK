@@ -1,5 +1,9 @@
 # MNNotificationsManager CHANGELOG
 
+## 2.7.1
+
+- Added support for Xcode 9.3
+
 ## 2.7
 
 - Added new event tracking

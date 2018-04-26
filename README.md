@@ -453,6 +453,8 @@ The Example App directory in the repository's root contains the source code for 
 Mobiquity Technologies, Inc. All rights reserved. See the LICENSE file for more info.
 
 # Release Notes #
+* **2.7.1**
+    * Support for Xcode 9.3
 * **2.7**
     * Added new event tracking
 * **2.6**
